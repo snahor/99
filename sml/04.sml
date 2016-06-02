@@ -1,4 +1,5 @@
-fun length xs =
+(* derp length *)
+fun recursivelength xs =
   let
     fun aux ([], acc) = acc
       | aux (y :: nil, acc) = acc + 1
@@ -6,3 +7,6 @@ fun length xs =
   in
     aux (xs, 0)
   end
+
+(* a better length *)
+val length = foldl (fn (_, acc) => acc + 1) 0;
