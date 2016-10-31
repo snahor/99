@@ -291,18 +291,17 @@ fun split xs n = (List.take (xs, n), List.drop (xs, n))
  *  L = [c,d,e,f,g]
  * 
  *)
-fun slice [] _ _ = []
-  | slice xs i j =
-    let
-      fun aux _ []        = []
-        | aux k (w :: ws) =
-            case (i <= k, k <= j) of
-              (true, true)  => w :: aux (k + 1) ws
-            | (false, true) => aux (k + 1) ws
-            | _             => []
-    in
-      aux 1 xs
-    end
+fun slice xs i j =
+  let
+    fun aux _ []        = []
+      | aux k (w :: ws) =
+          case (i <= k, k <= j) of
+            (true, true)  => w :: aux (k + 1) ws
+          | (false, true) => aux (k + 1) ws
+          | _             => []
+  in
+    aux 1 xs
+  end
 
 (*
  * 1.19  Rotate a list N places to the left.
@@ -317,7 +316,17 @@ fun slice [] _ _ = []
  * result of problem 1.17.
  * 
  *)
-fun rotate xs = ()
+fun rotate [] _ = []
+  | rotate xs n =
+      let
+        val m = length xs
+        val n' = n mod m
+      in
+        case (Int.sign n') of
+          0 => xs
+        | 1 => List.drop (xs, n') @ List.take (xs, n')
+        | _ => List.drop (xs, m + n') @ List.take (xs, m + n')
+      end
 
 (*
  * 1.20  Remove the K'th element from a list.
@@ -327,6 +336,13 @@ fun rotate xs = ()
  * R = [a,c,d]
  * 
  *)
+fun removeNth xs n =
+  let
+    val pairs = ListPair.zip (xs, List.tabulate (length xs, fn x => x + 1))
+  in
+    map (#1) (List.filter (fn (x, i) => i <> n) pairs)
+  end
+
 (*
  * 1.21  Insert an element at a given position into a list.
  * Example:
@@ -334,6 +350,16 @@ fun rotate xs = ()
  * L = [a,alfa,b,c,d]
  * 
  *)
+fun insertAt x xs n =
+  let
+    fun aux i (w :: ws) =
+      if i = n
+      then x :: w :: ws
+      else w :: aux (i + 1) ws
+  in
+    aux 1 xs
+  end
+
 (*
  * 1.22  Create a list containing all integers within a given range.
  * Example:
@@ -341,6 +367,11 @@ fun rotate xs = ()
  * L = [4,5,6,7,8,9]
  * 
  *)
+fun range a b =
+  if a <= b
+  then List.tabulate (b - a + 1, fn x => x + a)
+  else []
+
 (*
  * 1.23  Extract a given number of randomly selected elements from a list.
  * The selected items shall be put into a result list.
@@ -352,6 +383,8 @@ fun rotate xs = ()
  * problem 1.20.
  * 
  *)
+fun randomSelect xs n = ()
+
 (*
  * 1.24  Lotto: Draw N different random numbers from the set 1..M.
  * The selected numbers shall be put into a result list.
@@ -362,6 +395,7 @@ fun rotate xs = ()
  * Hint: Combine the solutions of problems 1.22 and 1.23.
  * 
  *)
+
 (*
  * 1.25  Generate a random permutation of the elements of a list.
  * Example:
@@ -371,6 +405,7 @@ fun rotate xs = ()
  * Hint: Use the solution of problem 1.23.
  * 
  *)
+
 (*
  * 1.26  Generate the combinations of K distinct objects chosen from the N
  * elements of a list
@@ -388,6 +423,7 @@ fun rotate xs = ()
  * ... 
  * 
  *)
+
 (*
  * 1.27  Group the elements of a set into disjoint subsets.
  * a) In how many ways can a group of 9 people work in 3 disjoint subgroups of
@@ -416,6 +452,7 @@ fun rotate xs = ()
  * discrete mathematics under the term "multinomial coefficients". 
  * 
  *)
+
 (*
  * 1.28  Sorting a list of lists according to length of sublists
  * a) We suppose that a list (InList) contains elements that are lists
