@@ -1,5 +1,5 @@
 (*
- * Gray code. (medium)
+ * (**) Gray code.
  * 
  * An n-bit Gray code is a sequence of n-bit strings constructed according to
  * certain rules. For example,
@@ -13,7 +13,11 @@
  * % gray(N,C) :- C is the N-bit Gray code
  *)
 
-(* wikipedia *)
+(*
+ * wikipedia
+ * https://en.wikipedia.org/wiki/Gray_code#Constructing_an_n-bit_Gray_code
+ *
+ *)
 fun gray 0 = []
   | gray 1 = ["0", "1"]
   | gray n =
