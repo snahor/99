@@ -1,5 +1,5 @@
 (*
- * (+++) Huffman code.
+ * (***) Huffman code.
  * First of all, study a good book on discrete mathematics or algorithms for a
  * detailed description of Huffman codes, or consult Wikipedia
  * 
