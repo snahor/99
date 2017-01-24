@@ -1,13 +1,14 @@
-fun expt_int (a, b) =
+fun pow_int (a, b) =
   let
     fun aux (x, i) =
-      if i = b then x
+      if i = b
+      then x
       else aux (x * a, i + 1)
   in
     aux (1, 0)
   end
 
-val op ** = expt_int
+val op ** = pow_int
 infix 6 **
 
 (* port of Haskell's sequence *)
@@ -37,3 +38,33 @@ fun sort _   []  = []
     in
       merge cmp ys ws
     end
+
+fun takeWhile _ []        = []
+  | takeWhile p (x :: xs) = if p x then x :: takeWhile p xs else []
+
+fun dropWhile _ []        = []
+  | dropWhile p (x :: xs) = if not (p x) then x :: xs else dropWhile p xs
+
+(*
+ * span is the same as:
+ * span p xss = (takeWhile p xss, dropWhile p xss)
+ *)
+fun span _ []        = ([], [])
+  | span p (x :: xs) =
+      let
+        val (ys, zs) = span p xs
+      in
+        if p x
+        then (x :: ys, zs)
+        else ([], x :: xs)
+      end
+
+(* span (fn x => x < 3) [1,2,3,4,1,2,3,4]; *)
+
+fun group _   []        = []
+  | group cmp (x :: xs) =
+      let
+        val (ys, zs) = span (fn x' => cmp (x, x')) xs
+      in
+        (x :: ys) :: group cmp zs
+      end
