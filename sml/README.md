@@ -53,6 +53,15 @@ https://sites.google.com/site/prologsite/prolog-problems
 ## Binary Trees
 - [ ] 4.01.sml * (easy) Check whether a given term represents a binary tree (No need to do it in SML)
 - [x] [4.02.sml](https://github.com/snahor/99/blob/master/sml/4.02.sml) * (medium) Construct completely balanced binary trees
+- [x] [4.03.sml](https://github.com/snahor/99/blob/master/sml/4.03.sml) * (medium) Symmetric binary trees
+- [x] [4.04.sml](https://github.com/snahor/99/blob/master/sml/4.04.sml) * (medium) Binary search trees (dictionaries)
+- [x] [4.05.sml](https://github.com/snahor/99/blob/master/sml/4.05.sml) * (medium) Generate-and-test paradigm
+- [ ] 4.06.sml * (medium) Construct height-balanced binary trees
+- [ ] 4.07.sml * (medium) Construct height-balanced binary trees with a given number of nodes
+- [x] [4.08.sml](https://github.com/snahor/99/blob/master/sml/4.08.sml) * (easy) Count the leaves of a binary tree
+- [x] [4.09.sml](https://github.com/snahor/99/blob/master/sml/4.09.sml) * (easy) Collect the leaves of a binary tree in a list
+- [x] [4.10.sml](https://github.com/snahor/99/blob/master/sml/4.10.sml) * (easy) Collect the internal nodes of a binary tree in a list
+- [x] [4.11.sml](https://github.com/snahor/99/blob/master/sml/4.11.sml) * (easy) Collect the nodes at a given level in a list
 
 ## Multiway Trees
 
