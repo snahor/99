@@ -17,9 +17,7 @@
  *
  *)
 
-datatype 'a bintree = Empty
-                    | Node of 'a * 'a bintree * 'a bintree
-
+use "4.01.sml"; (* bintree definition *)
 
 fun cbalTree 0 = [Empty]
   | cbalTree 1 = [Node ("x", Empty, Empty)]
