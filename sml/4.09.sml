@@ -7,7 +7,7 @@
  * % leaves(T,S) :- S is the list of all leaves of the binary tree T 
  *)
 
-use "4.02.sml";
+use "4.01.sml";
 
 fun leaves Empty                    = []
   | leaves (Node (x, Empty, Empty)) = [x]

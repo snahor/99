@@ -9,7 +9,7 @@
  * structure, not in the contents of the nodes.
  *)
 
-use "4.02.sml";
+use "4.01.sml"; (* bintree definition *)
 
 fun mirror Empty            Empty            = true
   | mirror (Node (_, a, b)) (Node (_, c, d)) = mirror a d andalso mirror b c

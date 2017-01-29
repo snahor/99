@@ -15,8 +15,8 @@
  * No
  *)
 
-use "4.02.sml";
-use "4.03.sml";
+use "4.01.sml"; (* bintree definition *)
+use "4.03.sml"; (* symmetric *)
 
 fun insert (n, Empty)                      = Node (n, Empty, Empty)
   | insert (n, Node (m: int, left, right)) =

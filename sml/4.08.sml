@@ -7,7 +7,7 @@
  * % count_leaves(T,N) :- the binary tree T has N leaves 
  *)
 
-use "4.02.sml";
+use "4.01.sml";
 
 fun countLeaves Empty                    = 0
   | countLeaves (Node (_, Empty, Empty)) = 1
